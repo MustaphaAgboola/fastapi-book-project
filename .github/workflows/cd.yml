@@ -51,6 +51,5 @@ jobs:
             
             # Run new container
             sudo docker run -d --name fastapi-app -p 8000:8000 ${{ secrets.DOCKER_HUB_USERNAME }}/fastapi-app:latest
-            EOF
 
 
