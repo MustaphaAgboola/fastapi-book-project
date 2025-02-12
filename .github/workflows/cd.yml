@@ -54,4 +54,12 @@ jobs:
               --name fastapi-app \
               -p 8000:8000 \
               --restart unless-stopped \
-              ${{ secrets.DOCKER_HUB_USERNAME }}/fastapi-app:latest
+              -e PORT=8000 \
+              -e HOST=0.0.0.0 \
+              ${{ secrets.DOCKER_HUB_USERNAME }}/fastapi-app:latest \
+              uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+              sudo docker ps -a | grep fastapi-app
+
+              sudo docker logs fastapi-app
+
